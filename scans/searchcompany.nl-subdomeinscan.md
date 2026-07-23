@@ -45,9 +45,10 @@ verwijzen alle naar hetzelfde IPv6-adres als het apex-domein.
 - **Één webserver, gedeeld IP.** De site staat op een gedeeld hosting-IP; er is
   geen eigen infrastructuur of CDN in gebruik.
 - **Mail is uitbesteed aan Google.** MX en SPF wijzen naar Google Workspace.
-  Let op: het SPF-record eindigt op `~all` (softfail) i.p.v. `-all` (hardfail) en
-  er is via DNS **geen DMARC-record** (`_dmarc.searchcompany.nl`) of DKIM
-  aangetroffen tijdens deze scan — aandachtspunt voor e-mailspoofing-weerbaarheid.
+  Let op: het SPF-record eindigt op `~all` (softfail) i.p.v. `-all` (hardfail).
+  DMARC en DKIM bestaan wél (zie de aparte security-scan), maar zijn niet streng
+  afgesteld (DMARC `p=none`) — aandachtspunt voor e-mailspoofing-weerbaarheid.
+  > Zie `searchcompany.nl-securityscan.md` voor de volledige e-mail/DNS-analyse.
 - **Geen zichtbare test-/acceptatieomgevingen** op subdomeinen. Dat is positief
   vanuit blootstelling-oogpunt (geen `staging.`, `dev.`, `admin.` gevonden).
 
